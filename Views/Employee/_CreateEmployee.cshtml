@@ -1,0 +1,53 @@
+@model EmployeeManagement.Models.Employee
+
+<div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="Create" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Employee</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input name="Name" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input name="Email" type="email" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input name="Address" class="form-control" required/>
+                    </div>
+
+                    <div class="mb-3">
+      <label asp-for="Phone" class="form-label"></label>
+    <input asp-for="Phone"
+           type="tel"
+           class="form-control"
+           pattern="[0-9]{5,15}"
+           title="Phone must be between 5 and 15 digits"
+           required />
+    <span asp-validation-for="Phone" class="text-danger"></span>
+
+</div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        Add
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

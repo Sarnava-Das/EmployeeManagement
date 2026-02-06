@@ -1,0 +1,32 @@
+﻿@model EmployeeManagement.Models.ErrorViewModel
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Something went wrong</h1>
+
+@if (!string.IsNullOrEmpty(Model?.Message))
+{
+    <p class="text-muted">@Model.Message</p>
+}
+else
+{
+    <p class="text-muted">
+        An unexpected error occurred while processing your request.
+    </p>
+}
+
+@if (Model?.StatusCode != null)
+{
+    <p>
+        <strong>Status Code:</strong> @Model.StatusCode
+    </p>
+}
+
+@if (Model?.ShowRequestId == true)
+{
+    <p>
+        <strong>Request ID:</strong> @Model.RequestId
+    </p>
+}

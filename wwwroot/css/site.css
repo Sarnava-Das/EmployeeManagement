@@ -1,0 +1,144 @@
+/* =========================
+   Global Base Styles
+   ========================= */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* =========================
+   Page Layout (Sticky Footer)
+   ========================= */
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+/* =========================
+   Links & Focus States
+   ========================= */
+
+a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-word;
+    font-weight: 600;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem #ffffff,
+                0 0 0 0.25rem #258cfb;
+}
+
+/* =========================
+   Buttons & Navigation
+   ========================= */
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* =========================
+   Utility Classes
+   ========================= */
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+.footer {
+    width: 100%;
+    line-height: 60px;
+    border-top: 1px solid #dee2e6;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.footer .container {
+    display: flex;
+    align-items: center;
+}
+
+/* =========================
+   Employee Management UI
+   ========================= */
+
+.emp-card {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.emp-header {
+    background-color: #3f5d7d;
+    color: #ffffff;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.emp-header h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.emp-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+}
