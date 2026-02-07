@@ -1,16 +1,16 @@
-﻿let rowDeleteId = null;                 // Stores single row delete Id
-let isBulkDelete = false;               // Flag to differentiate delete type
+﻿let rowDeleteId = null;                
+let isBulkDelete = false;              
 
 document.addEventListener("DOMContentLoaded", function () { // Run after DOM is loaded
 
     const selectAll = document.getElementById("selectAll"); 
-    const rowCheckboxes = document.querySelectorAll(".row-checkbox"); // Row checkboxes
+    const rowCheckboxes = document.querySelectorAll(".row-checkbox"); 
 
-    if (!selectAll) return;              // Exit if select-all checkbox not present
+    if (!selectAll) return; // Exit if select-all checkbox not present
 
-    // Select / Deselect all
+    
     selectAll.addEventListener("change", function () {
-        rowCheckboxes.forEach(cb => cb.checked = selectAll.checked); // Toggle all checkboxes
+        rowCheckboxes.forEach(cb => cb.checked = selectAll.checked); // Toggle all checkboxes i.e select/deselect all
     });
 
     // Update "Select All" when individual checkboxes change
@@ -22,35 +22,34 @@ document.addEventListener("DOMContentLoaded", function () { // Run after DOM is 
     });
 });
 
-// SINGLE row delete
+// single row delete to show delete warning modal
 function openDeleteModal(id) {
-    rowDeleteId = id;                   // Store selected row Id
-    isBulkDelete = false;               // Mark as single delete
-    new bootstrap.Modal(document.getElementById('deleteModal')).show(); // Show delete modal
+    rowDeleteId = id;                  
+    isBulkDelete = false;               
+    new bootstrap.Modal(document.getElementById('deleteModal')).show(); 
 }
 
-// BULK delete
+// bulk delete 
 function openBulkDeleteModal() {
     const checked = document.querySelectorAll("input[name='ids']:checked"); // Selected rows
 
     if (checked.length === 0) {
-        alert("Please select at least one record to delete."); // No selection alert
+        alert("Please select at least one record to delete."); // No selection browser alert
         return;
     }
 
-    isBulkDelete = true;                // Mark as bulk delete
-    new bootstrap.Modal(document.getElementById('deleteModal')).show(); // Show delete modal
+    isBulkDelete = true;                
+    new bootstrap.Modal(document.getElementById('deleteModal')).show(); // Show delete warning modal
 }
 
-// Confirm delete (called from modal Delete button)
+// confirmDelete() called from delete warning modal by clicking Delete button
 function confirmDelete() {
     if (isBulkDelete) {
-        // bulk delete
-        document.getElementById("deleteForm").submit(); // Submit bulk delete form
+          document.getElementById("deleteForm").submit(); // Submit bulk delete form
     } else {
         // single delete
         const form = document.createElement("form");   // Create dynamic form
-        form.method = "post";                           // Set POST method
+        form.method = "post";                           
         form.action = "/Employee/Delete";               // Target delete action
 
         const input = document.createElement("input"); // Hidden input for Id
