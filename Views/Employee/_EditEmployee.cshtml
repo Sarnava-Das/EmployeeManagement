@@ -1,48 +1,51 @@
-﻿@model EmployeeManagement.Models.Employee
+﻿@model EmployeeManagement.Models.Employee   
+<!-- Employee model binding -->
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
+<form asp-action="Edit" method="post">      <!-- Form posts to Edit action -->
+    <input type="hidden" asp-for="Id" />     <!-- Hidden field for employee Id -->
 
-    <div class="modal-header">
-        <h5 class="modal-title">Edit Employee</h5>
+    <div class="modal-header">               
+        <h5 class="modal-title">Edit Employee</h5> 
         <button type="button"
                 class="btn-close"
                 data-bs-dismiss="modal">
-        </button>
+        </button>                            
     </div>
 
-    <div class="modal-body">
-        <div class="mb-3">
-            <label class="form-label">Name</label>
-            <input asp-for="Name" class="form-control" />
+    <div class="modal-body">                 
+        <div class="mb-3">                  
+            <label class="form-label">Name</label> 
+            <input asp-for="Name" class="form-control" required /> 
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input asp-for="Email" class="form-control" />
+        <div class="mb-3">                  
+            <label class="form-label">Email</label> 
+            <input asp-for="Email" type="email" class="form-control" required/> 
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Address</label>
-            <input asp-for="Address" class="form-control" />
+        <div class="mb-3">                 
+            <label class="form-label">Address</label> 
+            <input asp-for="Address" class="form-control" required /> 
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Phone</label>
-            <input asp-for="Phone" class="form-control" />
+        <div class="mb-3">                  
+           <label asp-for="Phone" class="form-label"></label> 
+                        <input asp-for="Phone" type="tel" class="form-control" pattern="[0-9]{5,15}"
+                               title="Phone must be between 5 and 15 digits" required /><!-- Phone input with validation -->
+                        <span asp-validation-for="Phone" class="text-danger"></span> <!-- Phone validation message -->
         </div>
     </div>
 
-    <div class="modal-footer">
+    <div class="modal-footer">               
         <button type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal">
-            Cancel
+            Cancel                          
         </button>
 
         <button type="submit"
                 class="btn btn-primary">
-            Save
+            Save                             
         </button>
     </div>
 </form>

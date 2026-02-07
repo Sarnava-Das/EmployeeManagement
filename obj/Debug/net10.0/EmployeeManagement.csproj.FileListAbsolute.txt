@@ -145,7 +145,6 @@ D:\Projects\EmployeeManagement\obj\Debug\net10.0\rjimswa.dswa.cache.json
 D:\Projects\EmployeeManagement\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 D:\Projects\EmployeeManagement\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
 D:\Projects\EmployeeManagement\obj\Debug\net10.0\scopedcss\bundle\EmployeeManagement.styles.css
-D:\Projects\EmployeeManagement\obj\Debug\net10.0\compressed\54yrdtq0zi-{0}-uujf2bop2u-uujf2bop2u.gz
 D:\Projects\EmployeeManagement\obj\Debug\net10.0\compressed\bx6ek3ym5a-{0}-61n19gt1b8-61n19gt1b8.gz
 D:\Projects\EmployeeManagement\obj\Debug\net10.0\compressed\1hklt1z98q-{0}-bqjiyaj88i-bqjiyaj88i.gz
 D:\Projects\EmployeeManagement\obj\Debug\net10.0\compressed\6ewe6cm1i5-{0}-c2jlpeoesf-c2jlpeoesf.gz
@@ -217,4 +216,6 @@ D:\Projects\EmployeeManagement\obj\Debug\net10.0\refint\EmployeeManagement.dll
 D:\Projects\EmployeeManagement\obj\Debug\net10.0\EmployeeManagement.pdb
 D:\Projects\EmployeeManagement\obj\Debug\net10.0\EmployeeManagement.genruntimeconfig.cache
 D:\Projects\EmployeeManagement\obj\Debug\net10.0\ref\EmployeeManagement.dll
-D:\Projects\EmployeeManagement\obj\Debug\net10.0\compressed\m4glqywrnh-{0}-drc5ldaxtw-drc5ldaxtw.gz
+D:\Projects\EmployeeManagement\obj\Debug\net10.0\EmployeeManagement.sourcelink.json
+D:\Projects\EmployeeManagement\obj\Debug\net10.0\compressed\54yrdtq0zi-{0}-bjy89oyb36-bjy89oyb36.gz
+D:\Projects\EmployeeManagement\obj\Debug\net10.0\compressed\m4glqywrnh-{0}-az1pf0d7z7-az1pf0d7z7.gz

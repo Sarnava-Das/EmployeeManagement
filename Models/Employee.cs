@@ -5,7 +5,7 @@ namespace EmployeeManagement.Models
     public class Employee
     {
         public int Id { get; set; }
-
+//Data annotations for validtion which used as entity constraints for database
         [Required(ErrorMessage = "Name is required")]
         [StringLength(50, ErrorMessage = "Name cannot exceed 50 characters")]
         public string Name { get; set; } = null!;
@@ -20,8 +20,8 @@ namespace EmployeeManagement.Models
 
       
       [Required(ErrorMessage = "Phone number is required")]
-[RegularExpression(@"^[0-9]{5,15}$",
-    ErrorMessage = "Phone must be between 5 and 15 digits")]
+// [RegularExpression(@"^[0-9]{10}$",
+//     ErrorMessage = "Phone must be exactly 10 digits and contain only numbers")]  -Tried server-side validation but did not work properly
 public string Phone { get; set; } = null!;
 
     }
