@@ -1,23 +1,23 @@
 ﻿@model IEnumerable<EmployeeManagement.Models.Employee>  
     <!-- Employee list model -->
 @{
-    ViewData["Title"] = "Manage Employees";              <!-- Page title -->
+    ViewData["Title"] = "Manage Employees";              <!-- page title -->
 }
 
-<div class="card emp-card shadow-sm mt-4">               <!-- Main card container -->
+<div class="card emp-card shadow-sm mt-4">               <!-- main card container -->
 
-    <!-- HEADER -->
+    <!-- header-->
     <div class="emp-header d-flex justify-content-between align-items-center"> 
-        <h5 class="mb-0">Manage Employees</h5>             <!-- Header title -->
+        <h5 class="mb-0">Manage Employees</h5>             
         <div>
-            <!-- BULK DELETE -->
+            <!-- bulk delete button calling the js function openBulkDeleteModal() to open bulkdelete modal -->
             <button type="button"
                     class="btn btn-danger btn-sm me-2"
-                    onclick="openBulkDeleteModal()">       <!-- Bulk delete button -->
+                    onclick="openBulkDeleteModal()">       
                 <i class="bi bi-dash-circle"></i> Delete
             </button>
 
-            <!-- ADD -->
+          
             <button type="button"
                     class="btn btn-success btn-sm"
                     data-bs-toggle="modal"
@@ -27,20 +27,20 @@
         </div>
     </div>
 
-    <!-- TABLE -->
-    <div class="card-body p-0">                            <!-- Card body -->
-        <form id="deleteForm" method="post" asp-action="DeleteMultiple"> <!-- Bulk delete form -->
-            <table class="table emp-table mb-0 align-middle"> <!-- Employee table -->
+   <!-- server-side bulk deletion -->
+    <div class="card-body p-0">                            <!-- card body -->
+        <form id="deleteForm" method="post" asp-action="DeleteMultiple"> <!-- bulk delete form -->
+            <table class="table emp-table mb-0 align-middle"> <!-- employee table -->
                 <thead>
                     <tr>
                         <th class="ps-3">
                             <input type="checkbox" id="selectAll" /> <!-- Select all checkbox -->
                         </th>
-                        <th>Name</th>                       <!-- Name column -->
-                        <th>Email</th>                      <!-- Email column -->
-                        <th>Address</th>                    <!-- Address column -->
-                        <th>Phone</th>                      <!-- Phone column -->
-                        <th class="text-center">Actions</th> <!-- Action buttons column -->
+                        <th>Name</th>                       
+                        <th>Email</th>                     
+                        <th>Address</th>                    
+                        <th>Phone</th>                     
+                        <th class="text-center">Actions</th> <!-- action buttons column -->
                     </tr>
                 </thead>
 
@@ -55,22 +55,21 @@
                                    value="@item.Id" />      <!-- Row checkbox -->
                         </td>
                         <td>@item.Name</td>                 
-                        <!-- Employee name -->
-                        <td>@item.Email</td>                <!-- Employee email -->
-                        <td>@item.Address</td>              <!-- Employee address -->
-                        <td>@item.Phone</td>                <!-- Employee phone -->
+                        <td>@item.Email</td>               
+                        <td>@item.Address</td>              
+                        <td>@item.Phone</td>                
                         <td class="text-center">
-                            <!-- EDIT -->
+                            <!-- edit button calls loanEdit(id) js function  to open edit modal -->
                             <button type="button"
                                     class="btn btn-warning btn-sm action-btn me-1"
-                                    onclick="loadEdit(@item.Id)"> <!-- Open edit modal -->
+                                    onclick="loadEdit(@item.Id)"> 
                                 <i class="bi bi-pencil"></i>
                             </button>
 
-                            <!-- SINGLE DELETE -->
+                            <!-- single delete button calling the js function openDeleteModal(id) to open delete modal of single row -->
                             <button type="button"
                                     class="btn btn-danger btn-sm action-btn"
-                                    onclick="openDeleteModal(@item.Id)"> <!-- Open delete modal -->
+                                    onclick="openDeleteModal(@item.Id)">
                                 <i class="bi bi-trash"></i>
                             </button>
                         </td>
@@ -81,7 +80,7 @@
         </form>
     </div>
 
-    <!-- PAGINATION -->
+    <!-- server-side pagination since client-side is not scalable and efficient -->
     @if (ViewBag.TotalPages > 1)        @* Show pagination if needed  *@
     {
         <div class="d-flex justify-content-between align-items-center px-3 py-2 border-top">
@@ -90,7 +89,8 @@
             </span>
 
             <nav>
-                <ul class="pagination pagination-sm mb-0">  <!-- Pagination controls -->
+<!--server-side pagination since server sends only one page of data at a time and when next/previous page is clicked it is http request again to server i.e controller which renders the next/previous page of data from database -->
+                <ul class="pagination pagination-sm mb-0">  
                     <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
                         <a class="page-link"
                            asp-action="Index"
@@ -98,7 +98,7 @@
                             Previous
                         </a>
                     </li>
-
+<!--server-side pagination controls which is received by the controller i.e page no. depending on which list is rendered on html page -->
                     @for (int i = 1; i <= ViewBag.TotalPages; i++)  @* Page numbers  *@
                     {
                         <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
@@ -109,7 +109,7 @@
                             </a>
                         </li>
                     }
-
+<!--server-side pagination since server sends only one page of data at a time and when next/previous page is clicked it is http request again to server i.e controller which renders the next/previous page of data from database -->
                     <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
                         <a class="page-link"
                            asp-action="Index"
@@ -123,13 +123,13 @@
     }
 </div>
 
-<!-- PARTIAL VIEWS -->
-@await Html.PartialAsync("_CreateEmployee", new EmployeeManagement.Models.Employee()) <!-- Add modal -->
-@await Html.PartialAsync("_DeleteEmployee", new EmployeeManagement.Models.Employee()) <!-- Delete modal -->
+<!--static partial views rendered using PartialAsync since controller/reload is not required i.e it is loaded once at page load -->
+@await Html.PartialAsync("_CreateEmployee", new EmployeeManagement.Models.Employee()) 
+@await Html.PartialAsync("_DeleteEmployee", new EmployeeManagement.Models.Employee()) 
 
-<!-- EDIT MODAL CONTAINER (loaded dynamically) -->
-<div class="modal fade" id="editModal" tabindex="-1">     <!-- Edit modal -->
+<!-- edit modal container loaded dynamically using AJAX and js since user is dynamically selecting user to edit -->
+<div class="modal fade" id="editModal" tabindex="-1">     
     <div class="modal-dialog">
-        <div class="modal-content" id="editContent"></div> <!-- Dynamic edit content -->
+        <div class="modal-content" id="editContent"></div> <!-- dynamic edit content -->
     </div>
 </div>

@@ -3,7 +3,7 @@ let isBulkDelete = false;               // Flag to differentiate delete type
 
 document.addEventListener("DOMContentLoaded", function () { // Run after DOM is loaded
 
-    const selectAll = document.getElementById("selectAll"); // Select-all checkbox
+    const selectAll = document.getElementById("selectAll"); 
     const rowCheckboxes = document.querySelectorAll(".row-checkbox"); // Row checkboxes
 
     if (!selectAll) return;              // Exit if select-all checkbox not present
@@ -64,9 +64,9 @@ function confirmDelete() {
     }
 }
 
-// Load Edit Modal content dynamically
+// Load edit modal content dynamically i.e server-side rendering of the partial view edit modal since using fetch
 function loadEdit(id) {
-    fetch(`/Employee/Edit/${id}`)       // Fetch edit partial view
+    fetch(`/Employee/Edit/${id}`)       // fetch edit partial view
         .then(response => response.text())
         .then(html => {
             document.getElementById("editContent").innerHTML = html; // Inject modal content
@@ -74,7 +74,7 @@ function loadEdit(id) {
             var modal = new bootstrap.Modal(
                 document.getElementById("editModal")
             );
-            modal.show();               // Show edit modal
+            modal.show();               
         })
         .catch(err => console.error(err)); // Log fetch errors
 }

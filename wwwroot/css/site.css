@@ -1,47 +1,38 @@
-/* =========================
-   Global Base Styles
-   ========================= */
-
+/* Global Base Styles */
 html, body {
-    height: 100%;                 /* Full-height layout support */
-    margin: 0;                    /* Remove default margin */
-    font-size: 14px;              /* Base font size for small screens */
+    height: 100%;                 
+    margin: 0;                    
+    font-size: 14px;              
 }
 
 @media (min-width: 768px) {
     html {
-        font-size: 16px;          /* Increase font size for larger screens */
+        font-size: 16px;          
     }
 }
 
-/* =========================
-   Page Layout (Sticky Footer)
-   ========================= */
-
+/* page Layout with sticky Footer*/
 .page-wrapper {
-    min-height: 100vh;            /* Full viewport height */
-    display: flex;                /* Flexbox layout */
-    flex-direction: column;       /* Vertical stacking */
+    min-height: 100vh;            /* full viewport height */
+    display: flex;               
+    flex-direction: column;       /* vertical stacking of flexbox layout */
 }
 
 .content {
-    flex: 1;                      /* Push footer to bottom */
+    flex: 1;                      /* push footer to bottom */
 }
 
-/* =========================
-   Links & Focus States
-   ========================= */
-
+/*Links & Focus States */
 a {
-    color: #0077cc;               /* Primary link color */
-    text-decoration: none;        /* Remove underline */
+    color: #0077cc;               /* Primary link color followed by removing underline */
+    text-decoration: none;      
 }
 
 a.navbar-brand {
-    white-space: normal;          /* Allow text wrapping */
-    text-align: center;           /* Center align brand text */
+    white-space: normal;          /* allow text wrapping */
+    text-align: center;           
     word-break: break-word;       /* Prevent overflow */
-    font-weight: 600;             /* Semi-bold text */
+    font-weight: 600;             
 }
 
 .btn:focus,
@@ -53,27 +44,21 @@ a.navbar-brand {
                 0 0 0 0.25rem #258cfb; /* Focus outline styling */
 }
 
-/* =========================
-   Buttons & Navigation
-   ========================= */
-
+/* Buttons & Navigation */
 .btn-primary {
-    color: #fff;                  /* Button text color */
-    background-color: #1b6ec2;    /* Primary button background */
-    border-color: #1861ac;        /* Primary button border */
+    color: #fff;                  
+    background-color: #1b6ec2;    
+    border-color: #1861ac;        
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-    color: #fff;                  /* Active nav text color */
-    background-color: #1b6ec2;    /* Active nav background */
-    border-color: #1861ac;        /* Active nav border */
+    color: #fff;                  /* Active nav formatting */
+    background-color: #1b6ec2;   
+    border-color: #1861ac;        
 }
 
-/* =========================
-   Utility Classes
-   ========================= */
-
+/* Utility Classes */
 .border-top {
     border-top: 1px solid #e5e5e5; /* Top border utility */
 }
@@ -91,54 +76,48 @@ button.accept-policy {
     line-height: inherit;         /* Match parent line height */
 }
 
-/* =========================
-   Footer
-   ========================= */
-
+/*  Footer */
 .footer {
-    width: 100%;                  /* Full-width footer */
-    line-height: 60px;            /* Footer height */
-    border-top: 1px solid #dee2e6;/* Footer top border */
-    background-color: #ffffff;    /* Footer background */
-    font-size: 14px;              /* Footer text size */
-    color: #6c757d;               /* Muted footer text color */
+    width: 100%;                  
+    line-height: 60px;            
+    border-top: 1px solid #dee2e6;
+    background-color: #ffffff;    
+    font-size: 14px;              
+    color: #6c757d;               
 }
 
 .footer .container {
-    display: flex;                /* Flex layout */
-    align-items: center;          /* Vertical centering */
+    display: flex;               
+    align-items: center;          
 }
 
-/* =========================
-   Employee Management UI
-   ========================= */
-
+/*  Employee Management UI */
 .emp-card {
-    border-radius: 4px;           /* Rounded card corners */
-    overflow: hidden;             /* Prevent overflow */
+    border-radius: 4px;           /* Rounded card corners followed by overflow prevention */
+    overflow: hidden;             
 }
 
 .emp-header {
-    background-color: #3f5d7d;    /* Header background color */
-    color: #ffffff;               /* Header text color */
-    padding: 12px 16px;           /* Header spacing */
-    display: flex;                /* Flex layout */
+    background-color: #3f5d7d;    
+    color: #ffffff;               
+    padding: 12px 16px;          
+    display: flex;                
     justify-content: space-between; /* Space between elements */
-    align-items: center;          /* Vertical alignment */
+    align-items: center;         
 }
 
 .emp-header h5 {
-    margin: 0;                    /* Remove default margin */
-    font-weight: 600;             /* Semi-bold heading */
+    margin: 0;                    
+    font-weight: 600;            
 }
 
 .emp-table th {
-    background-color: #f8f9fa;    /* Table header background */
-    font-weight: 600;             /* Bold table headers */
+    background-color: #f8f9fa;    
+    font-weight: 600;            
 }
 
 .action-btn {
-    width: 32px;                  /* Fixed button width */
-    height: 32px;                 /* Fixed button height */
-    padding: 0;                   /* Remove padding */
+    width: 32px;                  
+    height: 32px;                
+    padding: 0;                  
 }
